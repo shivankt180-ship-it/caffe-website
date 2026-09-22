@@ -1,0 +1,2046 @@
+.hero-section {
+    height: 55vh;
+    min-height: 650px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+/* Cafe Logo */
+
+.cafe-logo {
+    color: white;
+}
+
+.logo-icon {
+    font-size: 55px;
+    margin-bottom: 5px;
+}
+
+.logo-name {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.logo-tagline {
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-top: 5px;
+    opacity: 0.85;
+}
+
+/* Heading */
+
+.hero-content h2 {
+    font-family: Georgia, serif;
+    line-height: 1.15;
+}
+
+/* Book Button */
+
+.btn-book {
+    background: #c79a63;
+    color: white;
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-book span {
+    margin-left: 8px;
+    font-size: 18px;
+}
+
+.btn-book:hover {
+    background: #b3844f;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Menu Button */
+
+.btn-menu {
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.7);
+
+    padding: 14px 28px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn-menu:hover {
+    background: white;
+    color: #222;
+}
+
+/* Scroll */
+
+.scroll-down {
+    position: absolute;
+
+    bottom: 25px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    z-index: 2;
+}
+
+.scroll-down div {
+    font-size: 22px;
+    margin-top: 5px;
+}
+
+
+/* =====================================
+   OWNER STORY SECTION
+===================================== */
+
+.owner-story {
+    padding: 100px 7%;
+    background: #f8f5ef;
+    overflow: hidden;
+}
+
+.owner-story-container {
+    max-width: 1250px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 90px;
+}
+
+
+/* =====================================
+   LEFT CONTENT
+===================================== */
+
+.owner-story-content {
+    padding-right: 20px;
+}
+
+.story-label {
+    display: inline-block;
+
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 600;
+
+    color: #a47742;
+
+    margin-bottom: 18px;
+}
+
+.owner-story-content h2 {
+    margin: 0 0 25px;
+
+    font-family: Georgia, serif;
+
+    font-size: 48px;
+    line-height: 1.15;
+
+    color: #2c2119;
+}
+
+.owner-story-content h2 span {
+    display: block;
+    color: #a47742;
+    font-style: italic;
+}
+
+.story-intro {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #4f463f;
+    margin-bottom: 20px;
+}
+
+.owner-story-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #70675f;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================
+   BUTTON
+===================================== */
+
+.story-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-top: 20px;
+
+    padding: 14px 25px;
+
+    background: #2c2119;
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    transition: 0.3s ease;
+}
+
+.story-btn span {
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+
+.story-btn:hover {
+    background: #a47742;
+}
+
+.story-btn:hover span {
+    transform: translateX(5px);
+}
+
+
+/* =====================================
+   RIGHT IMAGE
+===================================== */
+
+.owner-story-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Royal Frame */
+
+.royal-frame {
+    position: relative;
+
+    width: 430px;
+
+    padding: 18px;
+
+    background: #d4b078;
+
+    border: 2px solid #8c6536;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.18),
+        inset 0 0 0 5px #f2dfb9,
+        inset 0 0 0 7px #8c6536;
+}
+
+
+/* Image */
+
+.image-wrapper {
+    position: relative;
+
+    overflow: hidden;
+
+    border: 4px solid #2c2119;
+
+    aspect-ratio: 4 / 5;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.6s ease;
+}
+
+.royal-frame:hover .image-wrapper img {
+    transform: scale(1.05);
+}
+
+
+/* =====================================
+   TOP DECORATION
+===================================== */
+
+.frame-top-decoration {
+    position: absolute;
+
+    top: -22px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 5;
+}
+
+.frame-top-decoration span,
+.frame-bottom-decoration span {
+    width: 70px;
+    height: 2px;
+
+    background: #8c6536;
+}
+
+.frame-top-decoration i,
+.frame-bottom-decoration i {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #d4b078;
+
+    border: 2px solid #8c6536;
+
+    color: #5d4022;
+
+    font-style: normal;
+}
+
+
+/* =====================================
+   BOTTOM DECORATION
+===================================== */
+
+.frame-bottom-decoration {
+    position: absolute;
+
+    bottom: -22px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 5;
+}
+
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 900px) {
+
+    .owner-story {
+        padding: 70px 5%;
+    }
+
+    .owner-story-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .owner-story-content {
+        padding-right: 0;
+    }
+
+    .owner-story-content h2 {
+        font-size: 40px;
+    }
+
+    .owner-story-image {
+        order: 2;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .owner-story-content h2 {
+        font-size: 34px;
+    }
+
+    .royal-frame {
+        width: 90%;
+    }
+
+    .story-intro {
+        font-size: 16px;
+    }
+
+}
+
+
+
+
+/* =========================
+       BOOKING SECTION
+    ========================= */
+
+    .booking-section {
+        position: relative;
+        padding: 100px 0;
+        overflow: hidden;
+        background:
+            radial-gradient(circle at 10% 20%, rgba(184, 134, 80, 0.12), transparent 25%),
+            radial-gradient(circle at 90% 80%, rgba(92, 54, 32, 0.12), transparent 25%),
+            #f3ede4;
+    }
+
+
+    /* Decorative circles */
+
+    .decor-circle-one {
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        border: 1px solid rgba(115, 73, 43, 0.20);
+        border-radius: 50%;
+        top: -100px;
+        left: -100px;
+    }
+
+    .decor-circle-two {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border: 1px solid rgba(115, 73, 43, 0.20);
+        border-radius: 50%;
+        bottom: -70px;
+        right: -50px;
+    }
+
+
+    /* =========================
+       HEADING
+    ========================= */
+
+    .booking-heading {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 50px;
+    }
+
+    .booking-small-title {
+        color: #a06b42;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .booking-heading h1 {
+        font-family: Georgia, serif;
+        color: #3b2418;
+        font-size: 48px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+     /* ye wala menue ka css h  */
+     /* ============================= */
+/* MENU SECTION */
+/* ============================= */
+
+.menu-section {
+    padding: 90px 0;
+    background: #f8f5f0;
+}
+
+
+/* ============================= */
+/* HEADING */
+/* ============================= */
+
+.menu-heading {
+    margin-bottom: 45px;
+}
+
+.menu-heading span {
+    display: inline-block;
+    color: #b27a3c;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.menu-heading h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #2b2118;
+    margin-bottom: 12px;
+}
+
+.menu-heading p {
+    color: #777;
+    font-size: 16px;
+}
+
+
+/* ============================= */
+/* CATEGORY BUTTONS */
+/* ============================= */
+
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.menu-category {
+    border: 1px solid #d7c4ad;
+    background: white;
+    color: #3b2a1d;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-category:hover {
+    background: #3b2a1d;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.menu-category.active {
+    background: #3b2a1d;
+    color: white;
+    border-color: #3b2a1d;
+}
+
+
+/* ============================= */
+/* MENU CATEGORY CONTENT */
+/* ============================= */
+
+.menu-items {
+    display: none;
+}
+
+.menu-items.active-menu {
+    display: block;
+}
+
+
+/* ============================= */
+/* MENU CARD */
+/* ============================= */
+
+.menu-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.14);
+}
+
+
+/* ============================= */
+/* CARD IMAGE */
+/* ============================= */
+
+.menu-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ============================= */
+/* CARD CONTENT */
+/* ============================= */
+
+.menu-card-content {
+    padding: 22px;
+}
+
+.menu-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.menu-title h3 {
+    margin: 0;
+    color: #2b2118;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.menu-title span {
+    color: #b27a3c;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.menu-card-content p {
+    color: #777;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+/* ============================= */
+/* ORDER BUTTON */
+/* ============================= */
+
+.order-btn {
+    border: none;
+    background: #3b2a1d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.order-btn:hover {
+    background: #b27a3c;
+    transform: translateY(-2px);
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    .menu-section {
+        padding: 60px 0;
+    }
+
+    .menu-heading h1 {
+        font-size: 35px;
+    }
+
+    .menu-category {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .menu-card img {
+        height: 220px;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .menu-heading h1 {
+        font-size: 30px;
+    }
+
+    .menu-categories {
+        gap: 8px;
+    }
+
+    .menu-category {
+        padding: 9px 15px;
+    }
+
+}
+
+
+
+
+
+
+
+
+/* nabvar ka csss yahi h  */
+
+
+
+/* =====================================================
+   PROFESSIONAL CAFE NAVBAR
+===================================================== */
+
+.cafe-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    width: 100%;
+
+    background: rgba(255, 252, 247, 0.96);
+
+    border-bottom: 1px solid rgba(83, 54, 36, 0.10);
+
+    box-shadow:
+        0 8px 30px rgba(48, 30, 18, 0.07);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    transition: all 0.3s ease;
+}
+
+
+/* Slight shadow when scrolling */
+
+.cafe-navbar.scrolled {
+    box-shadow:
+        0 12px 35px rgba(48, 30, 18, 0.12);
+}
+
+
+/* =====================================================
+   INNER CONTAINER
+===================================================== */
+
+.cafe-navbar-inner {
+
+    width: min(1400px, 92%);
+
+    min-height: 82px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.cafe-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    flex-shrink: 0;
+}
+
+
+/* Logo Icon */
+
+.cafe-logo-mark {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #3b261b;
+
+    color: #f4e5d4;
+
+    border-radius: 14px;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 4px 0 #24150d,
+        0 8px 18px rgba(52, 31, 18, 0.18);
+
+    transition: all 0.3s ease;
+}
+
+
+.cafe-logo:hover .cafe-logo-mark {
+
+    transform:
+        translateY(-3px)
+        rotate(-3deg);
+
+    box-shadow:
+        0 6px 0 #24150d,
+        0 12px 22px rgba(52, 31, 18, 0.22);
+}
+
+
+/* Logo Text */
+
+.cafe-logo-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+
+.cafe-logo-text small {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    color: #9b7658;
+
+    margin-bottom: 5px;
+}
+
+
+.cafe-logo-text strong {
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+    color: #352217;
+
+    white-space: nowrap;
+}
+
+
+/* =====================================================
+   DESKTOP NAVIGATION
+===================================================== */
+
+.cafe-navigation {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    margin-left: auto;
+}
+
+
+.cafe-nav-link {
+
+    position: relative;
+
+    padding: 31px 15px;
+
+    color: #503b2d;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Underline */
+
+.cafe-nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+
+    bottom: 22px;
+
+    height: 2px;
+
+    background: #a8754c;
+
+    transform: scaleX(0);
+
+    transform-origin: center;
+
+    transition: transform 0.25s ease;
+}
+
+
+.cafe-nav-link:hover {
+
+    color: #a8754c;
+
+    transform: translateY(-2px);
+}
+
+
+.cafe-nav-link:hover::after,
+.cafe-nav-link.active::after {
+
+    transform: scaleX(1);
+}
+
+
+.cafe-nav-link.active {
+
+    color: #a8754c;
+}
+
+
+/* =====================================================
+   RIGHT ACTIONS
+===================================================== */
+
+.cafe-nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+
+/* Login */
+
+.cafe-login {
+
+    padding: 11px 19px;
+
+    border: 1px solid #cdb7a3;
+
+    border-radius: 10px;
+
+    color: #50382a;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition: all 0.3s ease;
+}
+
+
+.cafe-login:hover {
+
+    background: #3b261b;
+
+    color: white;
+
+    border-color: #3b261b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(59, 38, 27, 0.18);
+}
+
+
+/* Register */
+
+.cafe-register {
+
+    padding: 12px 21px;
+
+    background: #3b261b;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 4px 0 #24150d,
+        0 8px 16px rgba(59, 38, 27, 0.16);
+
+    transition: all 0.25s ease;
+}
+
+
+.cafe-register:hover {
+
+    background: #a8754c;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 6px 0 #70472d,
+        0 12px 20px rgba(59, 38, 27, 0.20);
+}
+
+
+.cafe-register:active {
+
+    transform: translateY(2px);
+
+    box-shadow:
+        0 2px 0 #70472d;
+}
+
+
+/* =====================================================
+   MOBILE MENU BUTTON
+===================================================== */
+
+.cafe-menu-button {
+
+    display: none;
+
+    width: 45px;
+    height: 45px;
+
+    border: 1px solid #d9c7b6;
+
+    background: #fffaf4;
+
+    border-radius: 10px;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    cursor: pointer;
+}
+
+
+.cafe-menu-button span {
+
+    width: 20px;
+    height: 2px;
+
+    background: #3b261b;
+
+    border-radius: 10px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+.cafe-mobile-menu {
+
+    display: none;
+
+    width: min(1400px, 92%);
+
+    margin: 0 auto;
+
+    padding: 15px 0 22px;
+
+    border-top: 1px solid rgba(83, 54, 36, 0.08);
+}
+
+
+.mobile-nav-link {
+
+    display: block;
+
+    padding: 13px 15px;
+
+    color: #503b2d;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    border-radius: 9px;
+
+    transition: 0.25s ease;
+}
+
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+
+    background: #f3ebe2;
+
+    color: #a8754c;
+}
+
+
+.mobile-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    padding: 12px 15px 0;
+}
+
+
+.mobile-login,
+.mobile-register {
+
+    flex: 1;
+
+    text-align: center;
+
+    padding: 11px;
+
+    border-radius: 9px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+.mobile-login {
+
+    border: 1px solid #cdb7a3;
+
+    color: #50382a;
+}
+
+
+.mobile-register {
+
+    background: #3b261b;
+
+    color: white;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1150px) {
+
+    .cafe-navigation {
+
+        gap: 0;
+    }
+
+    .cafe-nav-link {
+
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .cafe-nav-link::after {
+
+        left: 10px;
+        right: 10px;
+    }
+}
+
+
+@media (max-width: 991px) {
+
+    .cafe-navbar-inner {
+
+        min-height: 72px;
+    }
+
+    .cafe-navigation,
+    .cafe-nav-actions {
+
+        display: none;
+    }
+
+    .cafe-menu-button {
+
+        display: flex;
+    }
+
+    .cafe-mobile-menu.show {
+
+        display: block;
+    }
+
+    /* Hamburger → X */
+
+    .cafe-menu-button.open span:nth-child(1) {
+
+        transform:
+            translateY(7px)
+            rotate(45deg);
+    }
+
+    .cafe-menu-button.open span:nth-child(2) {
+
+        opacity: 0;
+    }
+
+    .cafe-menu-button.open span:nth-child(3) {
+
+        transform:
+            translateY(-7px)
+            rotate(-45deg);
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .cafe-navbar-inner {
+
+        width: 94%;
+    }
+
+    .cafe-logo-mark {
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 18px;
+    }
+
+    .cafe-logo-text strong {
+
+        font-size: 17px;
+    }
+
+    .cafe-logo-text small {
+
+        font-size: 8px;
+
+        letter-spacing: 4px;
+    }
+
+    .mobile-actions {
+
+        flex-direction: column;
+    }
+}
+
+
+
+
+/* yaha se bhai caffe blog ka css h  */
+
+
+
+
+/* ==========================================
+   BLOG HERO
+========================================== */
+
+.blog-hero {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(35, 21, 13, .90),
+            rgba(35, 21, 13, .50),
+            rgba(35, 21, 13, .20)
+        ),
+        url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1800&q=90");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.min-vh-50 {
+    min-height: 500px;
+}
+
+.blog-label {
+    color: #d4a477;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    font-weight: 600;
+}
+
+.blog-hero h1 {
+    margin: 18px 0;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(45px, 6vw, 72px);
+
+    line-height: 1.05;
+}
+
+.blog-hero h1 span {
+    color: #d6a679;
+}
+
+.blog-hero p {
+    max-width: 580px;
+
+    color: #eee1d6;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* ==========================================
+   SECTION TITLE
+========================================== */
+
+.section-title span {
+    color: #a66f48;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.section-title h2 {
+    margin-top: 10px;
+
+    color: #382319;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(34px, 4vw, 50px);
+}
+
+.section-title h2 strong {
+    color: #a66f48;
+
+    font-weight: normal;
+}
+
+.section-title p {
+    color: #79695d;
+}
+
+
+/* ==========================================
+   FEATURED BLOG
+========================================== */
+
+.featured-blog {
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    background: #f7f0e8;
+
+    box-shadow:
+        0 20px 50px rgba(55, 35, 20, .10);
+}
+
+.featured-image {
+    height: 100%;
+
+    min-height: 470px;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.featured-content {
+    min-height: 470px;
+
+    padding: 60px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.category {
+    color: #a66f48;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+}
+
+.featured-content h3 {
+    margin: 18px 0;
+
+    color: #382319;
+
+    font-family: Georgia, serif;
+
+    font-size: 38px;
+
+    line-height: 1.2;
+}
+
+.featured-content p {
+    color: #756356;
+
+    line-height: 1.8;
+}
+
+.blog-meta {
+    margin: 20px 0;
+
+    color: #9a8878;
+
+    font-size: 13px;
+}
+
+.blog-meta span {
+    margin: 0 8px;
+}
+
+.read-btn {
+    width: fit-content;
+
+    padding: 12px 20px;
+
+    color: #fff;
+
+    background: #3b261b;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: .3s;
+}
+
+.read-btn:hover {
+    color: white;
+
+    background: #a66f48;
+
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================
+   BLOG CARDS
+========================================== */
+
+.latest-blogs {
+    background: #fbf8f4;
+}
+
+.blog-card {
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #fff;
+
+    border: 1px solid #eee4da;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(55, 35, 20, .06);
+
+    transition: .35s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 18px 38px rgba(55, 35, 20, .13);
+}
+
+
+/* Image */
+
+.blog-image {
+    height: 240px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: .6s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.06);
+}
+
+
+/* Category */
+
+.blog-category {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    padding: 7px 11px;
+
+    color: #60422f;
+
+    background: rgba(255, 250, 245, .95);
+
+    border-radius: 5px;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 700;
+}
+
+
+/* Card Body */
+
+.blog-card-body {
+    padding: 24px;
+}
+
+.blog-card-body small {
+    color: #a18d7d;
+
+    font-size: 12px;
+}
+
+.blog-card-body h3 {
+    margin: 12px 0;
+
+    color: #382319;
+
+    font-family: Georgia, serif;
+
+    font-size: 23px;
+
+    line-height: 1.35;
+}
+
+.blog-card-body p {
+    color: #79695d;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* Bottom */
+
+.card-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding-top: 16px;
+
+    border-top: 1px solid #eee5dc;
+}
+
+.card-bottom strong {
+    color: #a66f48;
+
+    font-size: 13px;
+}
+
+.card-bottom a {
+    color: #493326;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.card-bottom a:hover {
+    color: #a66f48;
+}
+
+
+/* ==========================================
+   CTA
+========================================== */
+
+.blog-cta {
+    padding: 90px 20px;
+
+    background: #382319;
+
+    color: white;
+}
+
+.blog-cta > div > span {
+    color: #d4a477;
+}
+
+.blog-cta h2 {
+    margin: 15px 0;
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(38px, 5vw, 58px);
+}
+
+.blog-cta h2 strong {
+    color: #d6a679;
+
+    font-weight: normal;
+}
+
+.blog-cta p {
+    color: #d7c7ba;
+}
+
+.blog-cta a {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 13px 23px;
+
+    background: #d0a075;
+
+    color: #2f1d13;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.blog-cta a:hover {
+    background: white;
+
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 991px) {
+
+    .featured-image {
+        min-height: 350px;
+    }
+
+    .featured-content {
+        min-height: auto;
+
+        padding: 40px 30px;
+    }
+
+    .featured-content h3 {
+        font-size: 32px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .blog-hero {
+        min-height: 430px;
+    }
+
+    .min-vh-50 {
+        min-height: 430px;
+    }
+
+    .blog-hero h1 {
+        font-size: 45px;
+    }
+
+    .featured-content {
+        padding: 30px 22px;
+    }
+
+    .featured-content h3 {
+        font-size: 28px;
+    }
+
+    .blog-image {
+        height: 220px;
+    }
+}
+
+
+
+
+/* bhai yaha se contact. form ka css h  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   CONTACT HERO
+========================= */
+
+.contact-hero {
+    min-height: 430px;
+
+    display: flex;
+    align-items: center;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(45, 27, 17, .92),
+            rgba(45, 27, 17, .55)
+        ),
+        url("https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&w=1800&q=90");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-label,
+.contact-small-title,
+.form-label-top {
+    color: #c99a6b;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    font-weight: 700;
+}
+
+.contact-hero h1 {
+    font-family: Georgia, serif;
+}
+
+.contact-hero h1 span {
+    color: #c99a6b;
+}
+
+.contact-hero p {
+    max-width: 650px;
+
+    color: #eee0d4;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.contact-section {
+    background: #faf7f3;
+}
+
+
+/* =========================
+   LEFT CARD
+========================= */
+
+.contact-info {
+    background: #382319;
+
+    color: white;
+
+    box-shadow:
+        0 20px 50px rgba(50, 30, 18, .12);
+}
+
+.contact-info h2 {
+    font-family: Georgia, serif;
+
+    font-size: 42px;
+}
+
+.contact-info h2 strong {
+    color: #c99a6b;
+
+    font-weight: normal;
+}
+
+.contact-description {
+    color: #d8c6b7;
+
+    line-height: 1.8;
+}
+
+.contact-info p,
+.contact-info span {
+    color: #cdbbad;
+}
+
+.contact-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    border-radius: 10px;
+
+    color: #c99a6b;
+
+    font-size: 19px;
+}
+
+.opening-hours {
+    border-top: 1px solid rgba(255,255,255,.15);
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.contact-form-card {
+    background: white;
+
+    border: 1px solid #eee3d8;
+
+    box-shadow:
+        0 15px 40px rgba(50, 30, 18, .07);
+}
+
+.contact-form-card h2 {
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    color: #382319;
+}
+
+.contact-form-card h2 strong {
+    color: #a66f48;
+
+    font-weight: normal;
+}
+
+
+/* Bootstrap Form Customization */
+
+.contact-form-card .form-control,
+.contact-form-card .form-select {
+
+    border-color: #dfd2c5;
+
+    border-radius: 8px;
+
+    background: #fffdfb;
+}
+
+.contact-form-card .form-control:focus,
+.contact-form-card .form-select:focus {
+
+    border-color: #a66f48;
+
+    box-shadow:
+        0 0 0 .2rem rgba(166,111,72,.12);
+}
+
+
+/* Submit Button */
+
+.contact-btn {
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #382319;
+
+    color: white;
+
+    transition: .3s;
+}
+
+.contact-btn:hover {
+
+    background: #a66f48;
+
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   BOTTOM CTA
+========================= */
+
+.contact-bottom {
+    background: #382319;
+
+    color: white;
+}
+
+.contact-bottom span {
+    color: #c99a6b;
+
+    letter-spacing: 3px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.contact-bottom h2 {
+    font-family: Georgia, serif;
+}
+
+.contact-bottom h2 strong {
+    color: #c99a6b;
+
+    font-weight: normal;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 576px) {
+
+    .contact-hero {
+        min-height: 380px;
+    }
+
+    .contact-info h2 {
+        font-size: 34px;
+    }
+
+    .contact-form-card h2 {
+        font-size: 32px;
+    }
+
+    .opening-hours .d-flex {
+        flex-direction: column;
+
+        gap: 4px;
+    }
+}

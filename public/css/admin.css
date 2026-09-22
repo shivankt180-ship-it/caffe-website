@@ -1,0 +1,471 @@
+
+body {
+    background: #f7f4f1;
+}
+
+
+/* Dashboard Cards */
+
+.dashboard-card {
+    background: #ffffff;
+    border: 1px solid #eee5de;
+    border-radius: 14px;
+    padding: 22px;
+
+    box-shadow: 0 5px 20px rgba(50, 30, 20, .04);
+}
+
+
+/* Statistics */
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #f4e5d8;
+    color: #8b5838;
+
+    font-size: 21px;
+
+    margin-bottom: 18px;
+}
+
+
+/* Select */
+
+.dashboard-select {
+    width: 130px;
+    border-color: #e5ddd6;
+}
+
+
+/* Sales */
+
+.sales-bars {
+    height: 240px;
+
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+
+    border-bottom: 1px solid #eee5de;
+
+    padding: 20px 10px 0;
+}
+
+.sale-column {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: end;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.sale-bar {
+    width: 35px;
+
+    min-height: 20px;
+
+    border-radius: 8px 8px 0 0;
+
+    background: #d8b89e;
+
+    transition: .3s;
+}
+
+.sale-bar:hover,
+.sale-bar.active {
+    background: #8b5838;
+}
+
+
+/* Popular Items */
+
+.popular-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eee5de;
+}
+
+.food-placeholder {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f4e5d8;
+
+    color: #8b5838;
+
+    font-size: 18px;
+}
+
+
+/* Links */
+
+.view-link {
+    color: #8b5838;
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+.view-link:hover {
+    color: #5c3724;
+}
+
+
+/* Status */
+
+.status {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.delivered {
+    background: #dff4e8;
+    color: #24834b;
+}
+
+.preparing {
+    background: #fff0ce;
+    color: #a66b00;
+}
+
+.hold {
+    background: #ffe0e0;
+    color: #c44242;
+}
+
+
+/* Reservations */
+
+.reservation-item {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr auto;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #eee5de;
+
+    font-size: 13px;
+}
+
+.reservation-item div {
+    display: flex;
+    flex-direction: column;
+}
+
+.reservation-item small {
+    color: #999;
+}
+
+
+/* Blog */
+
+.blog-image {
+    height: 100px;
+
+    border-radius: 10px;
+
+    background: #ead7c7;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #8b5838;
+
+    font-size: 35px;
+}
+
+
+/* Quick Stats */
+
+.quick-stat {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #eee5de;
+}
+
+.quick-stat span {
+    color: #777;
+
+    font-size: 14px;
+}
+
+.quick-stat i {
+    color: #8b5838;
+
+    margin-right: 8px;
+}
+
+
+/* Table */
+
+.table {
+    --bs-table-bg: transparent;
+}
+
+.table thead th {
+    color: #888;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    border-bottom: 1px solid #eee5de;
+}
+
+.table tbody td {
+    font-size: 13px;
+
+    border-bottom: 1px solid #f1ece8;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    .dashboard-card {
+        padding: 17px;
+    }
+
+    .sales-bars {
+        height: 190px;
+    }
+
+    .sale-bar {
+        width: 25px;
+    }
+
+    .reservation-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+}
+
+/* navbar ka css h ye  */
+
+/* =========================
+   ADMIN NAVBAR
+========================= */
+
+.admin-navbar {
+    background: #2b1b13;
+
+    min-height: 76px;
+
+    padding: 0 25px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .08);
+}
+
+
+/* Logo */
+
+.admin-brand {
+    color: white !important;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    font-weight: 600;
+}
+
+.admin-brand:hover {
+    color: #d4a373 !important;
+}
+
+.admin-brand small {
+    display: block;
+
+    color: #b9957b;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+}
+
+.brand-icon {
+    color: #d4a373;
+
+    font-size: 28px;
+}
+
+
+/* Navbar Links */
+
+.admin-navbar .nav-link {
+    color: #ddd0c8 !important;
+
+    padding: 27px 13px !important;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    transition: .25s;
+}
+
+.admin-navbar .nav-link i {
+    margin-right: 5px;
+}
+
+.admin-navbar .nav-link:hover {
+    color: #d4a373 !important;
+}
+
+
+/* Active */
+
+.admin-navbar .nav-link.active {
+    color: #d4a373 !important;
+
+    border-bottom: 2px solid #d4a373;
+}
+
+
+/* Profile */
+
+.admin-profile {
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.profile-circle {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #a66f48;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* Dropdown */
+
+.admin-navbar .dropdown-menu {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 8px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.admin-navbar .dropdown-item {
+    padding: 10px 12px;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+}
+
+.admin-navbar .dropdown-item:hover {
+    background: #f5eee8;
+}
+
+
+/* Mobile */
+
+.admin-navbar .navbar-toggler {
+    color: white;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    padding: 7px 10px;
+}
+
+.admin-navbar .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+
+@media (max-width: 991px) {
+
+    .admin-navbar {
+        padding: 8px 15px;
+    }
+
+    .admin-navbar .nav-link {
+        padding: 12px 10px !important;
+
+        border-bottom: none;
+    }
+
+    .admin-navbar .nav-link.active {
+        border-bottom: none;
+
+        background: rgba(212,163,115,.1);
+
+        border-radius: 7px;
+    }
+
+    .admin-profile {
+        margin-top: 5px;
+    }
+}
+
