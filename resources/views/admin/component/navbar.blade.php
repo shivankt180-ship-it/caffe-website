@@ -95,6 +95,23 @@
                 </li>
 
 
+
+
+                <!-- gallery -->
+                <li class="nav-item">
+
+                    <a class="nav-link"
+                       href="{{ url('/admin/gallery') }}">
+
+                        <i class="bi bi-envelope"></i>
+
+                        gallery
+
+                    </a>
+
+                </li>
+                
+
                 <!-- Contact -->
                 <li class="nav-item">
 

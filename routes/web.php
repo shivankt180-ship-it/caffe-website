@@ -6,6 +6,7 @@ use App\Http\Controllers\reservation;
 use App\Http\Controllers\menu;
 use App\Http\Controllers\blog;
 use App\Http\Controllers\contact;
+use App\Http\Controllers\gallery;
 
 
 
@@ -26,6 +27,8 @@ Route::get('/table', [reservation::class, 'index'])->name('index');
 Route::get('/menu', [menu::class, 'menu'])->name('menu');
 Route::get('/blog', [blog::class, 'blog'])->name('blog');
 Route::get('/contact', [contact::class, 'contact'])->name('contact');
+Route::get('/gallery', [gallery::class, 'gallery'])->name('gallery');
+
 
 
 

@@ -37,6 +37,14 @@
                 Blog
             </a>
 
+
+
+            <a href="{{ url('/gallery') }}" class="cafe-nav-link">
+                gallery
+            </a>
+
+
+
             <a href="{{ url('/contact') }}" class="cafe-nav-link">
                 Contact
             </a>

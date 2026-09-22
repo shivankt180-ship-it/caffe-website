@@ -2044,3 +2044,642 @@
         gap: 4px;
     }
 }
+
+
+
+
+
+/* menue wala navbar laga huaa h yaha  */
+
+
+
+
+
+
+
+/* =========================
+   MENU SECTION
+========================= */
+
+.cafe-menu {
+    padding: 70px 0;
+    background: #faf7f2;
+}
+
+
+/* Heading */
+
+.menu-heading span {
+    color: #a56b42;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.menu-heading h2 {
+    color: #2d211b;
+    font-size: 42px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.menu-heading strong {
+    color: #a56b42;
+}
+
+
+/* Categories */
+
+.menu-categories {
+    margin: 30px 0 45px;
+}
+
+.menu-category {
+    border: none;
+    background: transparent;
+    color: #5b4537;
+    font-weight: 600;
+    padding: 9px 22px;
+    margin: 4px;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+.menu-category:hover {
+    background: #4b3024;
+    color: #fff;
+}
+
+.menu-category.active {
+    background: #4b3024;
+    color: #fff;
+}
+
+
+/* Card */
+
+.menu-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid #eee5dd;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.14);
+}
+
+
+/* Image */
+
+.menu-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+/* Content */
+
+.menu-card-body {
+    padding: 18px;
+}
+
+.menu-card-body h5 {
+    color: #30221c;
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.menu-card-body p {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 40px;
+}
+
+
+/* Price + View */
+
+.menu-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.menu-bottom span {
+    color: #a56b42;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.menu-bottom a {
+    color: #4b3024;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* Full Menu Button */
+
+.full-menu-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 28px;
+    background: #4b3024;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.full-menu-btn:hover {
+    background: #a56b42;
+    color: #fff;
+}
+
+
+/* Responsive */
+
+@media (max-width: 991px) {
+
+    .menu-heading h2 {
+        font-size: 35px;
+    }
+
+    .menu-card img {
+        height: 210px;
+    }
+
+}
+
+
+
+/* ye h blog o shoew karne ke liye  */
+
+
+/* =========================
+   BLOG SECTION
+========================= */
+
+.cafe-blog {
+    padding: 80px 0;
+    background: #fff;
+}
+
+
+/* Heading */
+
+.blog-heading span {
+    color: #a56b42;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.blog-heading h2 {
+    color: #2d211b;
+    font-size: 42px;
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.blog-heading strong {
+    color: #a56b42;
+}
+
+.blog-heading p {
+    color: #777;
+    margin-bottom: 45px;
+}
+
+
+/* Blog Card */
+
+.blog-card {
+    display: flex;
+    background: #faf7f2;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 260px;
+    border: 1px solid #eee5dd;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    transition: 0.4s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Left Image */
+
+.blog-image {
+    width: 45%;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.07);
+}
+
+
+/* Right Content */
+
+.blog-content {
+    width: 55%;
+    padding: 28px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.blog-date {
+    color: #a56b42;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.blog-content h3 {
+    color: #30221c;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 12px;
+}
+
+.blog-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+
+/* Read Blog */
+
+.blog-read {
+    color: #4b3024;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.blog-read:hover {
+    color: #a56b42;
+}
+
+
+/* View All Button */
+
+.blog-all {
+    margin-top: 45px;
+}
+
+.blog-btn {
+    display: inline-block;
+    background: #4b3024;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.blog-btn:hover {
+    background: #a56b42;
+    color: #fff;
+}
+
+
+/* Responsive */
+
+@media (max-width: 767px) {
+
+    .blog-card {
+        flex-direction: column;
+    }
+
+    .blog-image {
+        width: 100%;
+        height: 220px;
+    }
+
+    .blog-content {
+        width: 100%;
+    }
+
+    .blog-heading h2 {
+        font-size: 32px;
+    }
+
+}
+
+
+/* bhai yaha. gallery. ke liye. kaam ho raha h */
+/* =========================
+   GALLERY SECTION
+========================= */
+
+.cafe-gallery {
+    padding: 80px 0;
+    background: #faf7f2;
+}
+
+
+/* Heading */
+
+.gallery-heading span {
+    color: #a56b42;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.gallery-heading h2 {
+    color: #2d211b;
+    font-size: 42px;
+    font-weight: 700;
+    margin: 8px 0;
+}
+
+.gallery-heading strong {
+    color: #a56b42;
+}
+
+.gallery-heading p {
+    color: #777;
+    margin-bottom: 45px;
+}
+
+
+/* Gallery Item */
+
+.gallery-item {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 18px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-large {
+    height: 280px;
+}
+
+
+/* Image */
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+
+/* Hover Zoom */
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* Overlay */
+
+.gallery-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 25px 20px 20px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.75)
+    );
+
+    color: #fff;
+
+    opacity: 0;
+    transform: translateY(20px);
+
+    transition: 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-overlay span {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* Button */
+
+.gallery-button {
+    margin-top: 45px;
+}
+
+.gallery-button a {
+    display: inline-block;
+    background: #4b3024;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.gallery-button a:hover {
+    background: #a56b42;
+    color: #fff;
+}
+
+
+/* Responsive */
+
+@media (max-width: 767px) {
+
+    .gallery-heading h2 {
+        font-size: 32px;
+    }
+
+    .gallery-item,
+    .gallery-large {
+        height: 250px;
+    }
+
+}
+
+
+
+
+
+/* bhai yaha pe galley. ka. page. ka. conntent h  */
+ .gallery-page {
+    padding: 90px 0;
+    background: #faf7f2;
+}
+
+.gallery-page-heading span {
+    color: #a56b42;
+    font-size: 13px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.gallery-page-heading h1 {
+    font-size: 46px;
+    color: #2d211b;
+    margin: 10px 0;
+    font-weight: 700;
+}
+
+.gallery-page-heading strong {
+    color: #a56b42;
+}
+
+.gallery-page-heading p {
+    max-width: 700px;
+    margin: 0 auto 55px;
+    color: #777;
+    line-height: 1.7;
+}
+
+
+/* Gallery */
+
+.gallery-page-item {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-page-large {
+    height: 350px;
+}
+
+.gallery-page-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s ease;
+}
+
+.gallery-page-item:hover img {
+    transform: scale(1.08);
+}
+
+
+/* Overlay */
+
+.gallery-page-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 50px 25px 25px;
+    color: white;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.8)
+    );
+
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.gallery-page-item:hover .gallery-page-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.gallery-page-overlay h3 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.gallery-page-overlay p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* Bottom */
+
+.gallery-bottom {
+    margin-top: 75px;
+}
+
+.gallery-bottom h2 {
+    color: #2d211b;
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.gallery-bottom p {
+    color: #777;
+    max-width: 650px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
+
+.gallery-bottom a {
+    display: inline-block;
+    background: #4b3024;
+    color: #fff;
+    text-decoration: none;
+    padding: 13px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.gallery-bottom a:hover {
+    background: #a56b42;
+    color: #fff;
+}
+
+
+@media (max-width: 767px) {
+
+    .gallery-page-heading h1 {
+        font-size: 34px;
+    }
+
+    .gallery-page-item,
+    .gallery-page-large {
+        height: 260px;
+    }
+
+}
