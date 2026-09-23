@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\blog as BlogModel;
 
 class blog extends Controller
 {
+    public function index()
+    {
+        $blogs = BlogModel::where('status', 'published')->latest()->get();
 
+        return view('blog.index', compact('blogs'));
+    }
 
-public function blog (){
+    public function show($slug)
+    {
+        $blog = BlogModel::where('slug', $slug)
+            ->where('status', 'published')
+            ->firstOrFail();
 
-
-return view('blog.index');
-
-
-}
-
-
-
+        return view('blog.show', compact('blog'));
+    }
 }

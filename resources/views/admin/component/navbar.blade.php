@@ -84,7 +84,7 @@
                 <li class="nav-item">
 
                     <a class="nav-link"
-                       href="{{ url('/admin/bloga/create') }}">
+                       href="{{ route('admin.blogs.index') }}">
 
                         <i class="bi bi-file-text"></i>
 
