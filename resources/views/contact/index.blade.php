@@ -152,7 +152,20 @@
                     </h2>
 
 
-                    <form action="#" method="POST">
+                    @if (session('success'))
+                        <div class="alert alert-success" role="status">{{ session('success') }}</div>
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger" role="alert">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('contact.store') }}" method="POST">
 
                         @csrf
 
@@ -162,14 +175,17 @@
                             <!-- Name -->
                             <div class="col-md-6">
 
-                                <label class="form-label">
+                                <label class="form-label" for="contact-name">
                                     Your Name
                                 </label>
 
                                 <input
+                                    id="contact-name"
                                     type="text"
                                     name="name"
-                                    class="form-control form-control-lg"
+                                    value="{{ old('name') }}"
+                                    maxlength="255"
+                                    class="form-control form-control-lg @error('name') is-invalid @enderror"
                                     placeholder="Enter your name"
                                     required>
 
@@ -179,14 +195,17 @@
                             <!-- Email -->
                             <div class="col-md-6">
 
-                                <label class="form-label">
+                                <label class="form-label" for="contact-email">
                                     Email Address
                                 </label>
 
                                 <input
+                                    id="contact-email"
                                     type="email"
                                     name="email"
-                                    class="form-control form-control-lg"
+                                    value="{{ old('email') }}"
+                                    maxlength="255"
+                                    class="form-control form-control-lg @error('email') is-invalid @enderror"
                                     placeholder="Enter your email"
                                     required>
 
@@ -196,14 +215,17 @@
                             <!-- Phone -->
                             <div class="col-md-6">
 
-                                <label class="form-label">
+                                <label class="form-label" for="contact-phone">
                                     Phone Number
                                 </label>
 
                                 <input
+                                    id="contact-phone"
                                     type="tel"
                                     name="phone"
-                                    class="form-control form-control-lg"
+                                    value="{{ old('phone') }}"
+                                    maxlength="30"
+                                    class="form-control form-control-lg @error('phone') is-invalid @enderror"
                                     placeholder="+91 XXXXX XXXXX">
 
                             </div>
@@ -212,23 +234,25 @@
                             <!-- Subject -->
                             <div class="col-md-6">
 
-                                <label class="form-label">
+                                <label class="form-label" for="contact-subject">
                                     Subject
                                 </label>
 
                                 <select
+                                    id="contact-subject"
                                     name="subject"
-                                    class="form-select form-select-lg">
+                                    class="form-select form-select-lg @error('subject') is-invalid @enderror"
+                                    required>
 
-                                    <option selected disabled>
+                                    <option value="" @selected(old('subject') === null) disabled>
                                         Select subject
                                     </option>
 
-                                    <option>Table Booking</option>
-                                    <option>Menu & Food</option>
-                                    <option>Private Event</option>
-                                    <option>Feedback</option>
-                                    <option>General Enquiry</option>
+                                    <option value="Table Booking" @selected(old('subject') === 'Table Booking')>Table Booking</option>
+                                    <option value="Menu & Food" @selected(old('subject') === 'Menu & Food')>Menu & Food</option>
+                                    <option value="Private Event" @selected(old('subject') === 'Private Event')>Private Event</option>
+                                    <option value="Feedback" @selected(old('subject') === 'Feedback')>Feedback</option>
+                                    <option value="General Enquiry" @selected(old('subject') === 'General Enquiry')>General Enquiry</option>
 
                                 </select>
 
@@ -238,16 +262,18 @@
                             <!-- Message -->
                             <div class="col-12">
 
-                                <label class="form-label">
+                                <label class="form-label" for="contact-message">
                                     Your Message
                                 </label>
 
                                 <textarea
+                                    id="contact-message"
                                     name="message"
-                                    class="form-control"
+                                    class="form-control @error('message') is-invalid @enderror"
                                     rows="6"
                                     placeholder="Write your message..."
-                                    required></textarea>
+                                    maxlength="5000"
+                                    required>{{ old('message') }}</textarea>
 
                             </div>
 

@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\gallery;
+use App\Models\WebsiteUser;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
@@ -13,6 +14,14 @@ class AdminGalleryCrudTest extends TestCase
 
     public function test_gallery_images_can_be_created_updated_published_and_deleted(): void
     {
+        $admin = WebsiteUser::create([
+            'name' => 'Cafe Admin',
+            'email' => 'admin@example.test',
+            'password' => 'SecurePass123',
+        ]);
+        $admin->forceFill(['is_admin' => true])->save();
+        $this->actingAs($admin);
+
         $this->post(route('admin.gallery.store'), [
             'image' => UploadedFile::fake()->image('cafe.jpg'),
             'status' => 'published',

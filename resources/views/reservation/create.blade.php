@@ -32,6 +32,20 @@
 
         </div>
 
+        @if (session('success'))
+            <div class="alert alert-success" role="status">{{ session('success') }}</div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger" role="alert">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
 
         <!-- Booking Card -->
         <div class="row justify-content-center">
@@ -49,7 +63,7 @@
 
 
                     <!-- Booking Form -->
-                    <form action="#" method="POST">
+                    <form action="{{ route('reservation.store') }}" method="POST">
 
                         @csrf
 
@@ -59,13 +73,39 @@
                             <div class="col-md-6">
                                 <div class="booking-field">
 
-                                    <label>Your Name</label>
+                                    <label for="booking-name">Your Name</label>
 
                                     <input
+                                        id="booking-name"
                                         type="text"
                                         name="name"
-                                        class="form-control"
+                                        value="{{ old('name') }}"
+                                        autocomplete="name"
+                                        maxlength="255"
+                                        class="form-control @error('name') is-invalid @enderror"
                                         placeholder="Enter your name"
+                                        required
+                                    >
+
+                                </div>
+                            </div>
+
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <div class="booking-field">
+
+                                    <label for="booking-email">Email Address</label>
+
+                                    <input
+                                        id="booking-email"
+                                        type="email"
+                                        name="email"
+                                        value="{{ old('email') }}"
+                                        autocomplete="email"
+                                        maxlength="255"
+                                        class="form-control @error('email') is-invalid @enderror"
+                                        placeholder="Enter your email"
                                         required
                                     >
 
@@ -77,12 +117,16 @@
                             <div class="col-md-6">
                                 <div class="booking-field">
 
-                                    <label>Phone Number</label>
+                                    <label for="booking-phone">Phone Number</label>
 
                                     <input
+                                        id="booking-phone"
                                         type="tel"
                                         name="phone"
-                                        class="form-control"
+                                        value="{{ old('phone') }}"
+                                        autocomplete="tel"
+                                        maxlength="30"
+                                        class="form-control @error('phone') is-invalid @enderror"
                                         placeholder="Enter phone number"
                                         required
                                     >
@@ -95,12 +139,15 @@
                             <div class="col-md-6">
                                 <div class="booking-field">
 
-                                    <label>Booking Date</label>
+                                    <label for="booking-date">Booking Date</label>
 
                                     <input
+                                        id="booking-date"
                                         type="date"
                                         name="date"
-                                        class="form-control"
+                                        value="{{ old('date') }}"
+                                        min="{{ now()->toDateString() }}"
+                                        class="form-control @error('date') is-invalid @enderror"
                                         required
                                     >
 
@@ -112,12 +159,14 @@
                             <div class="col-md-6">
                                 <div class="booking-field">
 
-                                    <label>Booking Time</label>
+                                    <label for="booking-time">Booking Time</label>
 
                                     <input
+                                        id="booking-time"
                                         type="time"
                                         name="time"
-                                        class="form-control"
+                                        value="{{ old('time') }}"
+                                        class="form-control @error('time') is-invalid @enderror"
                                         required
                                     >
 
@@ -129,51 +178,18 @@
                             <div class="col-12">
                                 <div class="booking-field">
 
-                                    <label>Number of Guests</label>
+                                    <label for="booking-guests">Number of Guests</label>
 
-                                    <select
+                                    <input
+                                        id="booking-guests"
+                                        type="number"
                                         name="guests"
-                                        class="form-select"
+                                        min="1"
+                                        max="20"
+                                        value="{{ old('guests', 2) }}"
+                                        class="form-control @error('guests') is-invalid @enderror"
                                         required
                                     >
-
-                                        <option value="" selected disabled>
-                                            Select number of guests
-                                        </option>
-
-                                        <option value="1">
-                                            1 Guest
-                                        </option>
-
-                                        <option value="2">
-                                            2 Guests
-                                        </option>
-
-                                        <option value="3">
-                                            3 Guests
-                                        </option>
-
-                                        <option value="4">
-                                            4 Guests
-                                        </option>
-
-                                        <option value="5">
-                                            5 Guests
-                                        </option>
-
-                                        <option value="6">
-                                            6 Guests
-                                        </option>
-
-                                        <option value="7">
-                                            7 Guests
-                                        </option>
-
-                                        <option value="8">
-                                            8+ Guests
-                                        </option>
-
-                                    </select>
 
                                 </div>
                             </div>

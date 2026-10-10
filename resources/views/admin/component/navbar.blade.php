@@ -54,7 +54,7 @@
                 <li class="nav-item">
 
                     <a class="nav-link"
-                       href="{{ url('/admin/reservatiion') }}">
+                              href="{{ route('admin.reservations.index') }}">
 
                         <i class="bi bi-calendar2-check"></i>
 
@@ -125,6 +125,12 @@
 
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('admin.site-media.edit') }}">
+                        <i class="bi bi-image"></i>
+                        Homepage Media
+                    </a>
+                </li>
 
                 
                 <!-- Admin Profile -->
@@ -137,10 +143,10 @@
                         data-bs-toggle="dropdown">
 
                         <span class="profile-circle">
-                            A
+                            {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                         </span>
 
-                        Admin
+                        {{ auth()->user()->name }}
 
                     </a>
 
@@ -166,10 +172,13 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item text-danger" href="#">
-                                <i class="bi bi-box-arrow-right"></i>
-                                Logout
-                            </a>
+                            <form action="{{ route('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item text-danger">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    Logout
+                                </button>
+                            </form>
                         </li>
 
                     </ul>

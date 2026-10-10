@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\menu;
+use App\Models\WebsiteUser;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
@@ -12,6 +13,14 @@ class AdminMenuCrudTest extends TestCase
 
     public function test_menu_can_be_edited_and_deleted_from_admin(): void
     {
+        $admin = WebsiteUser::create([
+            'name' => 'Cafe Admin',
+            'email' => 'admin@example.test',
+            'password' => 'SecurePass123',
+        ]);
+        $admin->forceFill(['is_admin' => true])->save();
+        $this->actingAs($admin);
+
         $item = menu::create([
             'name' => 'House Coffee',
             'price' => 4.50,
@@ -20,7 +29,7 @@ class AdminMenuCrudTest extends TestCase
             'status' => 'draft',
         ]);
 
-        $this->get('/admin/menue/edit?' . $item->id . '=')
+        $this->get('/admin/menue/edit?'.$item->id.'=')
             ->assertRedirect(route('admin.menue.edit', $item->id));
 
         $this->get(route('admin.menue.edit', $item->id))

@@ -5,7 +5,6 @@
 
         {{-- Logo --}}
         <a href="{{ url('/') }}" class="cafe-logo">
-
             <span class="cafe-logo-mark">
                 <i class="fa-solid fa-mug-hot"></i>
             </span>
@@ -14,9 +13,7 @@
                 <small>THE</small>
                 <strong>CAFÉ BLISS</strong>
             </span>
-
         </a>
-
 
         {{-- Desktop Navigation --}}
         <div class="cafe-navigation">
@@ -37,13 +34,9 @@
                 Blog
             </a>
 
-
-
             <a href="{{ url('/gallery') }}" class="cafe-nav-link">
-                gallery
+                Gallery
             </a>
-
-
 
             <a href="{{ url('/contact') }}" class="cafe-nav-link">
                 Contact
@@ -51,32 +44,51 @@
 
         </div>
 
-
-        {{-- Right Side --}}
+        {{-- Desktop Authentication --}}
         <div class="cafe-nav-actions">
 
-            <a href="{{ url('/login') }}" class="cafe-login">
-                Login
-            </a>
+            @auth
+                <span class="cafe-login">
+                    Welcome, {{ auth()->user()->name }}
+                </span>
 
-            <a href="{{ url('/register') }}" class="cafe-register">
-                Register
-            </a>
+                @if (auth()->user()->is_admin)
+                    <a href="{{ route('dashboard') }}" class="cafe-login">Admin</a>
+                @endif
+
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="cafe-register">
+                        Logout
+                    </button>
+                </form>
+            @else
+                <a href="{{ route('home', ['auth' => 'login']) }}" class="cafe-login">
+                    Login
+                </a>
+
+                <a href="{{ route('home', ['auth' => 'register']) }}" class="cafe-register">
+                    Register
+                </a>
+            @endauth
 
         </div>
 
-
         {{-- Mobile Button --}}
-        <button class="cafe-menu-button" id="cafeMenuButton" type="button">
-
+        <button
+            class="cafe-menu-button"
+            id="cafeMenuButton"
+            type="button"
+            aria-label="Toggle navigation"
+            aria-controls="cafeMobileMenu"
+            aria-expanded="false"
+        >
             <span></span>
             <span></span>
             <span></span>
-
         </button>
 
     </div>
-
 
     {{-- Mobile Navigation --}}
     <div class="cafe-mobile-menu" id="cafeMobileMenu">
@@ -89,7 +101,7 @@
             Menu
         </a>
 
-        <a href="{{ url('/table-booking') }}" class="mobile-nav-link">
+        <a href="{{ route('index') }}" class="mobile-nav-link">
             Table Booking
         </a>
 
@@ -97,23 +109,44 @@
             Blog
         </a>
 
+        <a href="{{ url('/gallery') }}" class="mobile-nav-link">
+            Gallery
+        </a>
+
         <a href="{{ url('/contact') }}" class="mobile-nav-link">
             Contact
         </a>
 
+        {{-- Mobile Authentication --}}
         <div class="mobile-actions">
 
-            <a href="{{ url('/login') }}" class="mobile-login">
-                Login
-            </a>
+            @auth
+                <span class="mobile-nav-link">
+                    Welcome, {{ auth()->user()->name }}
+                </span>
 
-            <a href="{{ url('/register') }}" class="mobile-register">
-                Register
-            </a>
+                @if (auth()->user()->is_admin)
+                    <a href="{{ route('dashboard') }}" class="mobile-nav-link">Admin dashboard</a>
+                @endif
+
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="mobile-nav-link">
+                        Logout
+                    </button>
+                </form>
+            @else
+                <a href="{{ route('home', ['auth' => 'login']) }}" class="mobile-nav-link">
+                    Login
+                </a>
+
+                <a href="{{ route('home', ['auth' => 'register']) }}" class="mobile-nav-link">
+                    Register
+                </a>
+            @endauth
 
         </div>
 
     </div>
 
 </nav>
-

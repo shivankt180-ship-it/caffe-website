@@ -90,3 +90,63 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modalElement = document.getElementById("authModal");
+
+    if (!modalElement || !window.bootstrap?.Modal) {
+        return;
+    }
+
+    const authModal = window.bootstrap.Modal.getOrCreateInstance(modalElement);
+    const modeButtons = modalElement.querySelectorAll("[data-auth-mode]");
+    const panels = modalElement.querySelectorAll("[data-auth-panel]");
+    const modalTitle = document.getElementById("authModalTitle");
+
+    function selectAuthMode(mode, updateUrl = true) {
+        if (mode !== "login" && mode !== "register") {
+            return;
+        }
+
+        modeButtons.forEach(function (button) {
+            const isActive = button.dataset.authMode === mode;
+            button.classList.toggle("active", isActive);
+            button.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+
+        panels.forEach(function (panel) {
+            panel.hidden = panel.dataset.authPanel !== mode;
+        });
+
+        modalTitle.textContent = mode === "login" ? "Welcome back" : "Create your account";
+
+        if (updateUrl) {
+            const currentUrl = new URL(window.location.href);
+            currentUrl.searchParams.set("auth", mode);
+            window.history.replaceState({}, "", currentUrl);
+        }
+    }
+
+    modeButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            selectAuthMode(button.dataset.authMode);
+        });
+    });
+
+    const requestedMode = new URL(window.location.href).searchParams.get("auth");
+
+    if (requestedMode === "login" || requestedMode === "register") {
+        selectAuthMode(requestedMode, false);
+        authModal.show();
+    }
+
+    modalElement.addEventListener("hidden.bs.modal", function () {
+        const currentUrl = new URL(window.location.href);
+
+        if (currentUrl.searchParams.has("auth")) {
+            currentUrl.searchParams.delete("auth");
+            window.history.replaceState({}, "", currentUrl);
+        }
+    });
+});
+

@@ -493,6 +493,106 @@
         margin-bottom: 15px;
     }
 
+    .booking-heading p {
+        max-width: 620px;
+        margin: 0 auto;
+        color: #71665d;
+        line-height: 1.7;
+    }
+
+    .booking-section > .container > .alert {
+        position: relative;
+        z-index: 2;
+        max-width: 820px;
+        margin: 0 auto 24px;
+    }
+
+    .booking-card {
+        position: relative;
+        z-index: 1;
+        padding: 38px 44px;
+        border: 1px solid rgba(115, 73, 43, 0.14);
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 18px 48px rgba(56, 35, 25, 0.10);
+    }
+
+    .card-decoration {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 30px;
+        color: #a66f48;
+        font-size: 24px;
+    }
+
+    .card-decoration span {
+        width: 52px;
+        height: 1px;
+        background: #d9c5b2;
+    }
+
+    .booking-field label {
+        display: block;
+        margin-bottom: 8px;
+        color: #47372d;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .booking-field .form-control {
+        min-height: 48px;
+        border-color: #ded5cc;
+        border-radius: 8px;
+        background-color: #fffdfb;
+    }
+
+    .booking-field .form-control:focus {
+        border-color: #a66f48;
+        box-shadow: 0 0 0 3px rgba(166, 111, 72, 0.14);
+    }
+
+    .booking-submit {
+        border: 0;
+        border-radius: 8px;
+        padding: 13px 24px;
+        background: #382319;
+        color: #fff;
+        font-weight: 600;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .booking-submit:hover {
+        transform: translateY(-1px);
+        background: #8a5637;
+    }
+
+    .booking-submit span {
+        margin-left: 8px;
+    }
+
+    .booking-note {
+        margin-top: 24px;
+        color: #817469;
+        font-size: 13px;
+        text-align: center;
+    }
+
+    @media (max-width: 575.98px) {
+        .booking-section {
+            padding: 64px 0;
+        }
+
+        .booking-heading h1 {
+            font-size: 38px;
+        }
+
+        .booking-card {
+            padding: 26px 20px;
+        }
+    }
+
      /* ye wala menue ka css h  */
      /* ============================= */
 /* MENU SECTION */
@@ -1939,6 +2039,98 @@
     color: #a66f48;
 
     font-weight: normal;
+}
+
+
+/* Authentication Modal */
+
+.auth-modal-dialog {
+    max-width: 440px;
+}
+
+.auth-modal-dialog .modal-content {
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 20px 70px rgba(20, 14, 10, .28);
+}
+
+.auth-modal-dialog .modal-header {
+    align-items: flex-start;
+    border-bottom: 0;
+    padding: 1.4rem 1.5rem .6rem;
+}
+
+.auth-modal-dialog .modal-title {
+    color: #382319;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.auth-modal-dialog .modal-body {
+    padding: .5rem 1.5rem 1.5rem;
+}
+
+.auth-modal-switch {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 1.25rem;
+    padding: 4px;
+    border-radius: 8px;
+    background: #f3eee8;
+}
+
+.auth-modal-switch button {
+    flex: 1;
+    border: 0;
+    border-radius: 6px;
+    padding: .55rem;
+    background: transparent;
+    color: #59483c;
+    font-weight: 600;
+}
+
+.auth-modal-switch button.active {
+    background: #382319;
+    color: #fff;
+}
+
+.auth-modal-dialog .form-control:focus {
+    border-color: #a66f48;
+    box-shadow: 0 0 0 .2rem rgba(166, 111, 72, .12);
+}
+
+.auth-modal-links {
+    display: flex;
+    justify-content: space-between;
+    gap: .75rem;
+    margin-top: 1rem;
+    font-size: .9rem;
+}
+
+.auth-modal-links button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #8a5637;
+    text-decoration: underline;
+}
+
+.modal-backdrop.show {
+    backdrop-filter: blur(5px);
+}
+
+@media (max-width: 575.98px) {
+    .auth-modal-dialog {
+        margin: .75rem;
+    }
+
+    .auth-modal-dialog .modal-header {
+        padding: 1.1rem 1.1rem .5rem;
+    }
+
+    .auth-modal-dialog .modal-body {
+        padding: .5rem 1.1rem 1.1rem;
+    }
 }
 
 

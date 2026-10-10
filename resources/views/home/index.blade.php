@@ -1,5 +1,3 @@
-
-
 @extends('layouts.app')
 
 @section('content')
@@ -9,7 +7,7 @@
 
     <!-- Background Video -->
     <video class="hero-video" autoplay muted loop playsinline preload="auto">
-        <source src="/videos/vi.mp4" type="video/mp4">
+        <source src="{{ $heroVideo ? asset('storage/'.$heroVideo) : asset('videos/vi.mp4') }}" type="{{ $heroVideo ? $heroVideoType : 'video/mp4' }}">
         Your browser does not support the video tag.
     </video>
 
@@ -109,186 +107,43 @@
         </div>
 
 
-        <!-- Category Options -->
-        <div class="menu-categories text-center">
-
-            <button class="menu-category active" data-category="coffee">
-                Coffee
-            </button>
-
-            <button class="menu-category" data-category="tea">
-                Tea
-            </button>
-
-            <button class="menu-category" data-category="pizza">
-                Pizza
-            </button>
-
-            <button class="menu-category" data-category="burger">
-                Burger
-            </button>
-
-            <button class="menu-category" data-category="dessert">
-                Dessert
-            </button>
-
-        </div>
+        @if ($featuredMenu->isNotEmpty())
+            <div class="menu-categories text-center">
+                @foreach ($featuredMenu->pluck('category')->unique()->values() as $index => $category)
+                    <button class="menu-category {{ $index === 0 ? 'active' : '' }}" data-category="{{ \Illuminate\Support\Str::slug($category) }}">
+                        {{ $category }}
+                    </button>
+                @endforeach
+            </div>
+        @endif
 
 
-        <!-- Menu Cards -->
         <div class="row g-4 justify-content-center">
-
-
-            <!-- Coffee -->
-            <div class="col-lg col-md-6 menu-item"
-                 data-category="coffee">
-
-                <div class="menu-card">
-
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80"
-                         alt="Coffee">
-
-                    <div class="menu-card-body">
-
-                        <h5>Cappuccino</h5>
-
-                        <p>
-                            Rich espresso with creamy steamed milk.
-                        </p>
-
-                        <div class="menu-bottom">
-                            <span>₹180</span>
-                            <a href="/menu">View →</a>
+            @forelse ($featuredMenu as $item)
+                <div class="col-lg col-md-6 menu-item" data-category="{{ \Illuminate\Support\Str::slug($item->category) }}">
+                    <div class="menu-card">
+                        @if ($item->image)
+                            <img src="{{ asset('uploads/menu/'.$item->image) }}" alt="{{ $item->name }}">
+                        @endif
+                        <div class="menu-card-body">
+                            <h5>{{ $item->name }}</h5>
+                            <p>{{ \Illuminate\Support\Str::limit($item->discription, 100) }}</p>
+                            <div class="menu-bottom">
+                                <span>₹{{ number_format((float) $item->price, 2) }}</span>
+                                <a href="{{ route('menu') }}">View →</a>
+                            </div>
                         </div>
-
                     </div>
-
                 </div>
-
-            </div>
-
-
-            <!-- Tea -->
-            <div class="col-lg col-md-6 menu-item"
-                 data-category="tea">
-
-                <div class="menu-card">
-
-                    <img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=700&q=80"
-                         alt="Tea">
-
-                    <div class="menu-card-body">
-
-                        <h5>Masala Tea</h5>
-
-                        <p>
-                            Traditional Indian tea with aromatic spices.
-                        </p>
-
-                        <div class="menu-bottom">
-                            <span>₹100</span>
-                            <a href="/menu">View →</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Pizza -->
-            <div class="col-lg col-md-6 menu-item"
-                 data-category="pizza">
-
-                <div class="menu-card">
-
-                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=700&q=80"
-                         alt="Pizza">
-
-                    <div class="menu-card-body">
-
-                        <h5>Margherita Pizza</h5>
-
-                        <p>
-                            Fresh mozzarella, tomato and Italian herbs.
-                        </p>
-
-                        <div class="menu-bottom">
-                            <span>₹299</span>
-                            <a href="/menu">View →</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Burger -->
-            <div class="col-lg col-md-6 menu-item"
-                 data-category="burger">
-
-                <div class="menu-card">
-
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80"
-                         alt="Burger">
-
-                    <div class="menu-card-body">
-
-                        <h5>Classic Burger</h5>
-
-                        <p>
-                            Juicy patty with fresh vegetables and sauce.
-                        </p>
-
-                        <div class="menu-bottom">
-                            <span>₹249</span>
-                            <a href="/menu">View →</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Dessert -->
-            <div class="col-lg col-md-6 menu-item"
-                 data-category="dessert">
-
-                <div class="menu-card">
-
-                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
-                         alt="Dessert">
-
-                    <div class="menu-card-body">
-
-                        <h5>Chocolate Cake</h5>
-
-                        <p>
-                            Soft chocolate cake with creamy topping.
-                        </p>
-
-                        <div class="menu-bottom">
-                            <span>₹199</span>
-                            <a href="/menu">View →</a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+            @empty
+                <div class="col-12 text-center text-muted">Menu items will appear here once published.</div>
+            @endforelse
         </div>
 
 
         <!-- Full Menu -->
         <div class="text-center">
-            <a href="/menu" class="full-menu-btn">
+            <a href="{{ route('menu') }}" class="full-menu-btn">
                 View Full Menu →
             </a>
         </div>
@@ -316,88 +171,25 @@
 
 
         <div class="row g-4">
-
-
-            <!-- Blog 1 -->
-            <div class="col-lg-6">
-
-                <div class="blog-card">
-
-                    <!-- Left Image -->
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
-                             alt="Coffee Story">
-                    </div>
-
-
-                    <!-- Right Content -->
-                    <div class="blog-content">
-
-                        <span class="blog-date">
-                            20 September 2026
-                        </span>
-
-                        <h3>
-                            The Art of a Perfect Cup of Coffee
-                        </h3>
-
-                        <p>
-                            Discover the story behind our coffee,
-                            from carefully selected beans to the
-                            perfect cup served at our café.
-                        </p>
-
-                        <a href="/blog" class="blog-read">
-                            Read Blog →
-                        </a>
-
-                    </div>
-
+            @forelse ($recentBlogs as $blog)
+                <div class="col-lg-6">
+                    <article class="blog-card">
+                        <div class="blog-image">
+                            @if ($blog->image)
+                                <img src="{{ asset('uploads/blogs/'.$blog->image) }}" alt="{{ $blog->title }}">
+                            @endif
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-date">{{ $blog->created_at->format('d F Y') }}</span>
+                            <h3>{{ $blog->title }}</h3>
+                            <p>{{ \Illuminate\Support\Str::limit(strip_tags($blog->description), 140) }}</p>
+                            <a href="{{ route('blog.show', $blog->slug) }}" class="blog-read">Read Blog →</a>
+                        </div>
+                    </article>
                 </div>
-
-            </div>
-
-
-            <!-- Blog 2 -->
-            <div class="col-lg-6">
-
-                <div class="blog-card">
-
-                    <!-- Left Image -->
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
-                             alt="Cafe Story">
-                    </div>
-
-
-                    <!-- Right Content -->
-                    <div class="blog-content">
-
-                        <span class="blog-date">
-                            18 September 2026
-                        </span>
-
-                        <h3>
-                            Why Our Café Feels Like Home
-                        </h3>
-
-                        <p>
-                            A place for conversations, coffee
-                            and beautiful memories. Explore what
-                            makes our café special.
-                        </p>
-
-                        <a href="/blog" class="blog-read">
-                            Read Blog →
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
+            @empty
+                <div class="col-12 text-center text-muted">Published stories will appear here.</div>
+            @endforelse
         </div>
 
 
@@ -418,127 +210,6 @@
 
 
 <!-- gallery. ke liye. hum yaha se banna. rahe h  -->
-
-
-
-<section class="cafe-blog">
-
-    <div class="container">
-
-        <!-- Heading -->
-        <div class="blog-heading text-center">
-            <span>FROM OUR BLOG</span>
-            <h2>Stories From <strong>Our Café</strong></h2>
-            <p>Discover stories, ideas and moments from our café.</p>
-        </div>
-
-
-        <div class="row g-4">
-
-
-            <!-- Blog 1 -->
-            <div class="col-lg-6">
-
-                <div class="blog-card">
-
-                    <!-- Left Image -->
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80"
-                             alt="Coffee Story">
-                    </div>
-
-
-                    <!-- Right Content -->
-                    <div class="blog-content">
-
-                        <span class="blog-date">
-                            20 September 2026
-                        </span>
-
-                        <h3>
-                            The Art of a Perfect Cup of Coffee
-                        </h3>
-
-                        <p>
-                            Discover the story behind our coffee,
-                            from carefully selected beans to the
-                            perfect cup served at our café.
-                        </p>
-
-                        <a href="/blog" class="blog-read">
-                            Read Blog →
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Blog 2 -->
-            <div class="col-lg-6">
-
-                <div class="blog-card">
-
-                    <!-- Left Image -->
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80"
-                             alt="Cafe Story">
-                    </div>
-
-
-                    <!-- Right Content -->
-                    <div class="blog-content">
-
-                        <span class="blog-date">
-                            18 September 2026
-                        </span>
-
-                        <h3>
-                            Why Our Café Feels Like Home
-                        </h3>
-
-                        <p>
-                            A place for conversations, coffee
-                            and beautiful memories. Explore what
-                            makes our café special.
-                        </p>
-
-                        <a href="/blog" class="blog-read">
-                            Read Blog →
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- View All -->
-        <div class="text-center blog-all">
-
-            <a href="/blog" class="blog-btn">
-                View All Blogs →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-
-
-
-
-
 
 
 
@@ -563,117 +234,24 @@
         </div>
 
 
-        <!-- Gallery -->
         <div class="row g-4">
-
-            <!-- Image 1 -->
-            <div class="col-lg-4 col-md-6">
-
-                <div class="gallery-item">
-
-                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=80"
-                         alt="Cafe Interior">
-
-                    <div class="gallery-overlay">
-                        <span>Café Interior</span>
+            @forelse ($galleryItems as $index => $galleryItem)
+                <div class="{{ $index === 4 ? 'col-lg-6' : 'col-lg-3' }} col-md-6">
+                    <div class="gallery-item {{ $index === 4 ? 'gallery-large' : '' }}">
+                        <img src="{{ asset('uploads/gallery/'.$galleryItem->image) }}" alt="Café gallery image {{ $index + 1 }}">
+                        <div class="gallery-overlay"><span>Café Moments</span></div>
                     </div>
-
                 </div>
-
-            </div>
-
-
-            <!-- Image 2 -->
-            <div class="col-lg-4 col-md-6">
-
-                <div class="gallery-item">
-
-                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80"
-                         alt="Coffee">
-
-                    <div class="gallery-overlay">
-                        <span>Fresh Coffee</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Image 3 -->
-            <div class="col-lg-4 col-md-6">
-
-                <div class="gallery-item">
-
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80"
-                         alt="Restaurant">
-
-                    <div class="gallery-overlay">
-                        <span>Our Place</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Image 4 -->
-            <div class="col-lg-3 col-md-6">
-
-                <div class="gallery-item">
-
-                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80"
-                         alt="Coffee Cup">
-
-                    <div class="gallery-overlay">
-                        <span>Coffee Time</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Image 5 -->
-            <div class="col-lg-6 col-md-6">
-
-                <div class="gallery-item gallery-large">
-
-                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80"
-                         alt="Cafe">
-
-                    <div class="gallery-overlay">
-                        <span>Café Moments</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Image 6 -->
-            <div class="col-lg-3 col-md-6">
-
-                <div class="gallery-item">
-
-                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80"
-                         alt="Coffee Beans">
-
-                    <div class="gallery-overlay">
-                        <span>Fresh Beans</span>
-                    </div>
-
-                </div>
-
-            </div>
-
+            @empty
+                <div class="col-12 text-center text-muted">Gallery photos will appear here once published.</div>
+            @endforelse
         </div>
 
 
         <!-- Button -->
         <div class="text-center gallery-button">
 
-            <a href="/gallery">
+            <a href="{{ route('gallery') }}">
                 View Full Gallery →
             </a>
 
@@ -768,10 +346,12 @@
                 </div>
 
                 <div class="image-wrapper">
-                    <img
-                        src="{{ asset('images/cafe-owner.jpg') }}"
-                        alt="Our Café"
-                    >
+                    @if ($storyPhoto || $storyPhotoFallback)
+                        <img
+                            src="{{ $storyPhoto ? asset('storage/'.$storyPhoto) : asset('uploads/gallery/'.$storyPhotoFallback) }}"
+                            alt="Our Café"
+                        >
+                    @endif
                 </div>
 
                 <div class="frame-bottom-decoration">

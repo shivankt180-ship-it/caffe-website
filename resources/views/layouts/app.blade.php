@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+
+
+
+
+
+    
   </head>
+
   <body>
   @include('component.navbar')
 
@@ -23,6 +31,9 @@
 
 
 @include('component.footer')
+@if (request()->routeIs('home'))
+@include('auth.modal')
+@endif
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="{{ asset('js/script.js') }}"></script>
   </body>
