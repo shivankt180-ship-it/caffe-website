@@ -4,7 +4,13 @@ use App\Http\Controllers\admin\bloga;
 use App\Http\Controllers\admin\contacts;
 use App\Http\Controllers\admin\dashboard;
 use App\Http\Controllers\admin\menue;
+use App\Http\Controllers\admin\gallerya;
 use App\Http\Controllers\admin\reservatiion;
+
+
+
+
+
 use App\Http\Controllers\blog;
 use App\Http\Controllers\contact;
 use App\Http\Controllers\gallery;
@@ -21,18 +27,63 @@ Route::get('/blog/{slug}', [blog::class, 'show'])->name('blog.show');
 Route::get('/contact', [contact::class, 'contact'])->name('contact');
 Route::get('/gallery', [gallery::class, 'gallery'])->name('gallery');
 
+
+
 Route::get('/admin/dashboard', [dashboard::class, 'dashboard'])->name('dashboard');
 
 Route::get('/admin/reservatiion', [reservatiion::class, 'index'])->name('reservatiion');
 
-Route::get('/admin/menue/create', [menue::class, 'index'])->name('menue.create');
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('/admin/menue/index', [menue::class, 'index'])->name('admin.menue.index');
+
+Route::get('/admin/menue/create', [menue::class, 'create'])->name('admin.menue.create');
+
+Route::get('/admin/menue/edit', [menue::class, 'redirectLegacyEdit'])->name('admin.menue.legacy-edit');
+Route::get('/admin/menue/{id}/edit', [menue::class, 'edit'])->name('admin.menue.edit');
+Route::put('/admin/menue/{id}', [menue::class, 'update'])->name('admin.menue.update');
+Route::delete('/admin/menue/{id}', [menue::class, 'destroy'])->name('admin.menue.destroy');
+
+
+
+
 
 Route::get('/admin/blogs', [bloga::class, 'index'])->name('admin.blogs.index');
 Route::get('/admin/blogs/create', [bloga::class, 'create'])->name('admin.blogs.create');
+
 Route::post('/admin/blogs', [bloga::class, 'store'])->name('admin.blogs.store');
+
+
+
+
+
+Route::post('/admin/menu', [menue::class, 'store'])->name('admin.menue.store');
+
 Route::get('/admin/blogs/{id}/edit', [bloga::class, 'edit'])->name('admin.blogs.edit');
 Route::put('/admin/blogs/{id}', [bloga::class, 'update'])->name('admin.blogs.update');
 Route::delete('/admin/blogs/{id}', [bloga::class, 'destroy'])->name('admin.blogs.destroy');
 
 Route::get('/admin/contacts', [contacts::class, 'index'])->name('contacts');
 // Route::get('/admin/contacts/index', [contacts::class, 'index'])->name('contacts.index');
+
+
+
+
+Route::get('/admin/gallery', [gallerya::class, 'index'])->name('admin.gallery.index');
+Route::get('/admin/gallery/create', [gallerya::class, 'create'])->name('admin.gallery.create');
+Route::post('/admin/gallery', [gallerya::class, 'store'])->name('admin.gallery.store');
+Route::get('/admin/gallery/edit', [gallerya::class, 'redirectLegacyEdit'])->name('admin.gallery.legacy-edit');
+Route::get('/admin/gallery/{id}/edit', [gallerya::class, 'edit'])->whereNumber('id')->name('admin.gallery.edit');
+Route::put('/admin/gallery/{id}', [gallerya::class, 'update'])->whereNumber('id')->name('admin.gallery.update');
+Route::delete('/admin/gallery/{id}', [gallerya::class, 'destroy'])->whereNumber('id')->name('admin.gallery.destroy');

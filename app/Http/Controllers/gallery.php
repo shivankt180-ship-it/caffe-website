@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\gallery as GalleryItem;
+use Illuminate\Contracts\View\View;
 
 class gallery extends Controller
 {
-  public function gallery()
-  {
+    public function gallery(): View
+    {
+        $gallery = GalleryItem::where('status', 'published')->latest()->get();
 
-return view ('gallery');
-
+        return view('gallery', compact('gallery'));
     }
 }

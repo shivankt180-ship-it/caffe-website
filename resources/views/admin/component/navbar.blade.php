@@ -69,10 +69,9 @@
                 <li class="nav-item">
 
                     <a class="nav-link"
-                       href="{{ url('/admin/menue/create') }}">
+                       href="{{ route('admin.menue.index') }}">
 
                         <i class="bi bi-cup-straw"></i>
-
                         Menu
 
                     </a>
