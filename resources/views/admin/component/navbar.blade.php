@@ -125,6 +125,32 @@
 
                 </li>
 
+
+
+
+
+
+
+  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">
+                        <i class="bi bi-image"></i>
+                        back to site
+                    </a>
+                </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.site-media.edit') }}">
                         <i class="bi bi-image"></i>

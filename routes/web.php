@@ -16,6 +16,7 @@ use App\Http\Controllers\menu;
 use App\Http\Controllers\reservation;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', [home::class, 'home'])->name('home');
 Route::get('/table', [reservation::class, 'index'])->name('index');
 Route::post('/table', [reservation::class, 'store'])->middleware('throttle:6,1')->name('reservation.store');
